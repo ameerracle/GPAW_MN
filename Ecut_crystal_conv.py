@@ -2,6 +2,7 @@ from ase.io import read
 from gpaw import GPAW, FermiDirac, PW
 import numpy as np
 import pandas as pd
+from dftd4.ase import DFTD4
 
 MN = ['TiN', 'VN', 'ScN', 'ZrN', 'NbN']
 
@@ -22,6 +23,7 @@ for metal in MN:
     for ecut in ecut_values:
         print(f"  Calculating for Ecut = {ecut:.1f} eV...")
         # Set up GPAW calculator
+        D4 = DFTD4(method="GPAW")
         calc = GPAW(mode=PW(ecut),
                     xc='PBE',
                     txt=f'{metal}_ecut_{ecut:.1f}.txt',
