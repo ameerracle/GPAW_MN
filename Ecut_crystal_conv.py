@@ -10,7 +10,7 @@ output_excel = 'ecut_convergence_results.xlsx'
 writer = pd.ExcelWriter(output_excel, engine='openpyxl')
 
 for metal in MN:
-    filename = f'./{metal}.cif'  # Use current metal's CIF file
+    filename = f'{metal}.cif'  # Use current metal's CIF file
     ecut_values = np.linspace(300, 600, 8)  # 8 points from 300 to 600 eV
 
     kpts_mesh = (6, 6, 6)
@@ -24,6 +24,7 @@ for metal in MN:
         # Set up GPAW calculator
         calc = GPAW(mode=PW(ecut),
                     xc='PBE',
+                    txt=f'{metal}_ecut_{ecut:.1f}.txt',
                     kpts={'size': kpts_mesh, 'gamma': True},
                     occupations=FermiDirac(0.05))
 
