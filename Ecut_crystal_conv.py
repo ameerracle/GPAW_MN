@@ -82,6 +82,5 @@ txt_df.to_csv(output_txt, sep='\t', index=False)
 
 # Save Excel file
 print("\nAll calculations finished. Saving results...")
-writer.save()
 writer.close()
 print(f"Results saved to {output_excel} and backup to {output_txt}")
