@@ -46,7 +46,4 @@ for fname in slab_files:
     dyn = FIRE2(atoms, trajectory=traj_file)
     dyn.run(fmax=fmax)
 
-    # Save relaxed structure
-    relaxed_file = fname.replace('.xyz', '_relaxed.xyz')
-    write(relaxed_file, atoms)
-    print(f"✔ Relaxed: {relaxed_file}")
+ 
